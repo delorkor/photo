@@ -22,12 +22,13 @@ include 'down_f.php';
             else {
                 
                 $_SESSION['error']="Неверный логин или пароль";
-              exit;
+          
             }
            
         }
-        header('Location: ../includ.php');
+        // header('Location: ../includ.php');
      }
+   
     //  echo '<pre>';
     //  echo print_r($arr_elem);
      

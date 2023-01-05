@@ -20,7 +20,7 @@
     <form action="phpcode/reg.php" method="post" class="form_reg">
         <label for="login">Логин</label>
         <input type="text" name="login">
- 
+
         <label for="name">Имя</label>
         <input type="text" name="name">
 
