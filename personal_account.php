@@ -13,8 +13,8 @@ if (!$_SESSION['name']) {
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
-<header>
+<body class="user">
+<header class="head">
 <ul>
 <li><a href="phpcode/exit.php">выход</a></li>
 <li><a href="phpcode/cancell.php">На главную</a></li>
@@ -29,38 +29,67 @@ if (!$_SESSION['name']) {
 </header>
 <section class="img_sec">
 <?php
-if ($_SESSION['name_img']!='') {
- 
 
-foreach ($_SESSION['name_img'] as $key => $value_img) {
-  echo '<div class="box">';
-  echo '<img class="img_sec_user" src="photo/'. $_SESSION['login'] . '/' . $value_img . '"alt=""> ';
-  echo '<form action="phpcode/del.php" method="post">';
-  echo'<input class="ninja" type="text" name="del" value ="'. $value_img .'" >';
-  if (isset($value_img)) {
-    echo'<input type="submit" class="del_but" value="Удалить">';
+if ($_SESSION['name_img']!='') {
+
+  //////////////////////////////////////////////////////////////////////// пагенация
+  $p = isset($_GET["p"]) ? (int) $_GET["p"] : 1;
+  $str_img=8;
+
+//  echo '<pre>';
+//  echo print_r($_SESSION["name_img"]);
+//  echo '</pre>';
+ $arr_rev=array_merge(array_reverse($_SESSION['name_img']));
+  
+  $str_start=($p-1)*$str_img;
+$str_page=ceil(count($_SESSION['name_img'])/$str_img);
+
+
+    for ($i=$str_start; $i <$str_start+$str_img ; $i++) { 
+      echo '<div class="box">';
+      echo '<img class="img_sec_user" src="photo/'. $_SESSION['login'] . '/' .$arr_rev[$i] . '"alt=""> ';
+      echo '<form action="phpcode/del.php" method="post">';
+      echo'<input class="ninja" type="text" name="del" value ="'. $arr_rev[$i] .'" >';
+      if (isset($arr_rev[$i])) {
+        echo'<input type="submit" class="del_but" value="Удалить">';
+    }
+    echo '</form>' ;
+    echo '</div>';
+    }
+    
+
+// //   ////////////////////////////////////////////////////////////////////////
+
+
+
+// foreach (array_reverse($_SESSION['name_img']) as $key => $value_img) {
+//   echo '<div class="box">';
+//   // echo '<a href="page_img.php"><img class="img_sec_user" src="photo/'. $_SESSION['login'] . '/' . $value_img . '"alt=""></a> ';
+//   echo '<img class="img_sec_user" src="photo/'. $_SESSION['login'] . '/' . $value_img . '"alt=""> ';
+//   echo '<form action="phpcode/del.php" method="post">';
+//   echo'<input class="ninja" type="text" name="del" value ="'. $value_img .'" >';
+//   if (isset($value_img)) {
+//     echo'<input type="submit" class="del_but" value="Удалить">';
+// }
+// echo '</form>' ;
+// echo '</div>';
+// }
+
+
+
 }
-echo '</form>' ;
-echo '</div>';
-}
-}
-else{
-  header('Location: ../index.php');
-}
+
   ?>
 
-<!-- <div class="del"><a href="phpcode/exit.php"></a></div> -->
+</section>
+<section class="pagen">
+
+<? for($i = 1; $i <= $str_page; $i++){ ?>
+<a href="?p=<?= $i ?>"><?= $i?></a>
+<? } ?>
+
+
 </section>
 </body>
+
 </html>
-
-<!-- echo '<div class="del"><a href="phpcode/del.php">Удалить</a></div>';  -->
-
-
-<?php
-$title = 'Привет, мир';
-$url = 'https://misha.agency?p=1';
-$hashtags = 'wp,wordpress';
-// обратите внимание, что некоторые из параметров я включил непосредственно в URL
-?>
-<a href="http://twitter.com/share?text=<?php echo $title; ?>&via=twitterfeed&related=truemisha&hashtags=<?php echo $hashtags ?>&url=<?php echo $url; ?>" title="Поделиться ссылкой в Твиттере" onclick="window.open(this.href, this.title, 'toolbar=0, status=0, width=548, height=325'); return false" target="_parent">Твитнуть</a>

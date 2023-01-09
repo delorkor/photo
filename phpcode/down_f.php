@@ -45,26 +45,3 @@ function down_file($dir_i){
     } 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-// $_SESSION['name_img']=[];
-// // $arr_dir_file =[];
-// while (false !== ($entry = readdir($dir_img))) {
-//     if ($entry != "." && $entry != "..") {
-//         $_SESSION['name_img'][] =$entry;
-
-//         // echo '<pre>';
-//         // // echo print_r($arr_dir_file);
-//         // echo print_r( $_SESSION['name_img']);
-//         // echo '</pre>';
-//     }
-// }

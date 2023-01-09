@@ -13,20 +13,20 @@ include 'down_f.php';
             if ($value[0]==$_POST['login'] && $value[5]==$_POST['pasword'] ) {
                 $_SESSION['name']=$value[1];
                 $_SESSION['login']=$value[0];
-                $_SESSION['pasword']=$value[5];
+                // $_SESSION['pasword']=$value[5];
                 $dir_img = opendir('../photo/'. $_SESSION['login']);
                 down_file($dir_img);
                 closedir($dir_img);
                 header('Location: ../index.php');
             }
-            else {
-                
-                $_SESSION['error']="Неверный логин или пароль";
-          
-            }
            
         }
-        // header('Location: ../includ.php');
+        if (!$_SESSION['name']) {
+            $_SESSION['error']="Неверный логин или пароль";
+            header('Location: ../includ.php');
+        }        
+      
+
      }
    
     //  echo '<pre>';

@@ -10,7 +10,7 @@ session_start();
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
+<body class="bod">
 <header>
 <ul>
 

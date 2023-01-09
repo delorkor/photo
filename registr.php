@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
+<body class="bod">
 <header>
     <!-- <ul>
 <li><a href="#">Регистрация</a></li>

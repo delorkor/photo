@@ -10,7 +10,7 @@ session_start();
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
+<body class="bod">
 
 <section class="inclid">
     <form action="phpcode/entrance.php" method="post" class="form_reg">
