@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;  
+    margin: 0;
+    padding: 0;
+  }
+
+.ninja{
+    display: none;
+}
+
+
+
+.down_sub{
+    background-color: rgba(182, 177, 180, 0.5);
+    font-family:  monospace;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+outline: none;
+border: none;
+border-radius: 5px;
+height: 50px;
+width: 100px;
+
+}
+
+.user{
+    /* background-color: rgba(18, 157, 221, 0.9); */
+    background:url('img/gory_ozero.jpg') center center/cover no-repeat;
+}
+.head{
+    background-color: rgba(182, 177, 180, 0.5);
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.pagen{
+    background-color: rgba(182, 177, 180, 0.5);
+    margin:0 auto;
+    font-size: 26px;
+    color: rgb(51, 53, 55);
+    width: 1170px;
+    text-align: center;
+}
+
+.box_img{
+background: rgba(182, 177, 180, 0.5);
+    width: 100%;
+    height: 100vh;;
+}
+.box_img .box_img_style{
+    margin: 0 auto;
+}

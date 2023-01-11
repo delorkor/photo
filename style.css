@@ -114,11 +114,11 @@ margin-bottom: 40px;
 margin-right: 78px;
 max-width: 234px;
 max-height:300px;
-
+position: relative;
 }
-.img_sec_user{
-max-width: 234px;
-max-height:300px;
+a .img_sec_user{
+width: 234px;
+height:300px;
 
 }
 .box:nth-child(4n) {
@@ -178,4 +178,19 @@ width: 100px;
     color: rgb(51, 53, 55);
     width: 1170px;
     text-align: center;
+}
+
+.box_img{
+background: rgba(182, 177, 180, 0.5);
+    width: 100%;
+    height: 100vh;
+}
+.box_img .box_img_style{
+    margin: 0 auto;
+}
+.use_img{
+    background: url('img/body.jpg') center center/cover no-repeat;
+
+    width: 100%;
+    height:100vh;  
 }
