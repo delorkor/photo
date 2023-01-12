@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;  
+    margin: 0;
+    padding: 0;
+  }
+  .user{
+    position: relative;
+  
+    background:url('img/gory_ozero.jpg') center center/cover no-repeat;
+}
+.box_img{
+    display: flex;
+    justify-content: center;
+    background: rgba(182, 177, 180, 0.5);
+    width: 100vw;
+    height: 100vh;
+
+
+}  
+
+.ninja{
+    display: none;
+}
+.del_but_str{
+ width: 100%;
+ height: 50px;
+}
+
+
+.box_img_style{
+margin-top: 50px;
+
+display: flex;
+flex-direction: column;
+ 
+}
+
+.page_img_style{
+max-height: 80vh;
+}

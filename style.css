@@ -182,15 +182,16 @@ width: 100px;
 
 .box_img{
 background: rgba(182, 177, 180, 0.5);
-    width: 100%;
-    height: 100vh;
+  
+   
 }
-.box_img .box_img_style{
-    margin: 0 auto;
+.box_img_style{
+display: inline-block;
+ margin: 0 auto;  
+ height: 700px;
 }
-.use_img{
-    background: url('img/body.jpg') center center/cover no-repeat;
 
-    width: 100%;
-    height:100vh;  
-}
+/* .page_img_style{
+
+
+} */
