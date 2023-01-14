@@ -21,7 +21,7 @@ session_start();
         <input type="password" name="pasword">
         <div class="subm">
             <input type="submit" class="button" value="Вход" >
-            <input type="button" class="button"  value="Выход" >
+            <input type="button" class="button" onclick="window.location.href = 'index.php'" value="Выход" >
 
         </div>
         <div class="error_includ">

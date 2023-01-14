@@ -11,10 +11,10 @@ foreach ($_SESSION['name_img'] as $key=> $value_del) {
         unlink('../photo/'. $_SESSION['login'] . "/" . $value_del);
     }
 }
-$dir_img = opendir('../photo/'. $_SESSION['login']);
-down_file($dir_img);
-closedir($dir_img);
-
+// $dir_img = opendir('../photo/'. $_SESSION['login']);
+// down_file($dir_img);
+// closedir($dir_img);
+$Down_f->getFile();
 header('Location: ../personal_account.php');
 
 

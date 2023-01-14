@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +43,7 @@
         
         <div class="subm">
             <input type="submit" class="button" value="Регистрация" >
-            <input type="button" class="button"  value="Выход " >
+            <input type="button" class="button" onclick="window.location.href = 'index.php'" value="Выход " >
 
         </div>
     </form>

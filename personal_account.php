@@ -32,6 +32,9 @@ if (!$_SESSION['name']) {
 <section class="img_sec">
 
 <?php
+// echo '<pre>';
+// echo print_r($_SESSION['name_img']);
+// echo '<pre>';
 
 if ($_SESSION['name_img']!='') {
 
