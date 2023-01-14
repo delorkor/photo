@@ -26,14 +26,12 @@ session_start();
         </div>
         <div class="error_includ">
           <?php 
-          if (($_SESSION['error'])) {
+
+          if ($_SESSION['error']) {
           echo $_SESSION['error'];
-          
-        //   echo '<pre>';
-        //   echo  print_r($_SESSION);
-        //   echo '</pre>';
+          unset($_SESSION['error']);
       }
-      unset($_SESSION['error']);
+    
           ?>
         </div>
     </form>

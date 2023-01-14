@@ -25,7 +25,7 @@ if (isset($_SESSION['name'])):
 
 
 
-   <?php endif; ?>
+   <?php endif;?>
 
     </ul>
 </header>
