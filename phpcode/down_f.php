@@ -65,7 +65,6 @@ else {
     move_uploaded_file( $_FILES['down_file']['tmp_name'],'../'. $path);
     header('Location: ../personal_account.php');
 }
-// $this->getFile();
  }
 
   function getFile(){
@@ -79,9 +78,22 @@ else {
     closedir($dir_img);
   }
 
+  function DelFile(){
+    $dir_img = opendir('../photo/'. $_SESSION['login']);
+    foreach ($_SESSION['name_img'] as $key=> $value_del) {
+        if ($_POST['del']== $value_del) {
+            unlink('../photo/'. $_SESSION['login'] . "/" . $value_del);
+        }
+    }
+    header('Location: ../personal_account.php');
+  }
+
+
+
 }
 
 $Down_f = new down_file();
 $Down_f->setFile();
+// $Down_f->getFile();
+$Down_f->DelFile();
 $Down_f->getFile();
-

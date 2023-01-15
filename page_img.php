@@ -23,7 +23,7 @@ $img_del=str_img($url[2]);
     ?>
   <div class="box_img_style">
   <img class="page_img_style" src="/photo/<?echo $_SESSION['login'] ?>/<?echo $img ?>"alt=""> 
- <form action="/phpcode/del.php" method="post">
+ <form action="/phpcode/down_f.php" method="post">
 <input class="ninja" type="text" name="del" value ="<?echo $img ?>" >
 <? if ($_SESSION['name']) { ?>
   <input type="submit" class="del_but_str" value="Удалить">

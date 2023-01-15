@@ -60,7 +60,7 @@ if($str_page_ostatoc>8){$str_page_ostatoc=8;}
       
       echo '<div class="box">';
       echo '  <a href="/page_img.php/'.$arr_rev[$i] .'"><img class="img_sec_user" src="photo/'. $_SESSION['login'] . '/' .$arr_rev[$i] . '"alt=""> </a>';
-      echo '<form action="phpcode/del.php" method="post">';
+      echo '<form action="phpcode/down_f.php" method="post">';
       echo'<input class="ninja" type="text" name="del" value ="'. $arr_rev[$i] .'" >';
       if (isset($arr_rev[$i])) {
         echo'<input type="submit" class="del_but" value="Удалить">';
