@@ -1,56 +1,45 @@
 <?php
 
 session_start();
-include 'down_f.php';
- $arr_elem=[];
- if(($file = fopen('user.csv','r'))!==false) {
-    $arr=fgetcsv($file, filesize('user.csv'),',');
-    while(($arr=fgetcsv($file, filesize('user.csv'),','))!==false){
-        $arr_elem[]=$arr;
+
+class authorization
+{
+ private $arr_elem=[];
+
+    function getFile(){
+
+        if (($file = fopen('user.csv','r'))!==false) {
+            while(($arr=fgetcsv($file, filesize('user.csv'),','))!==false){
+                $this->arr_elem[]=$arr;
+            }
+            fclose($file);
+         }
     }
-        foreach ($arr_elem as $value) {
+
+    function getData(){
+
+        foreach ($this->arr_elem as $value) {
 
             if ($value[0]==$_POST['login'] && $value[5]==$_POST['pasword'] ) {
                 $_SESSION['name']=$value[1];
-                $_SESSION['login']=$value[0];
-                $dir_img = opendir('../photo/'. $_SESSION['login']);
-                down_file($dir_img);
-                closedir($dir_img);
+                $_SESSION['login']=$value[0];            
                 header('Location: ../index.php');
             }
-           
-        }
+           }  
+         }
+
+    function SetError(){
+
         if (!$_SESSION['name']) {
             $_SESSION['error']="Неверный логин или пароль";
             header('Location: ../includ.php');
-        }        
-      
-
-     }
+            }        
+        }
+         
    
-    //  echo '<pre>';
-    //  echo print_r($arr_elem);
-     
-    // //  echo print_r($_SESSION['login']);
-    //  echo '</pre>';
- 
- 
-fclose($file);
+}
 
-
-
-
-
-
-// class authorization
-// {
-
-//     function getFile(){
-
-//         if (($file = fopen('user.csv','r'))!==false) {
-//             while(($arr=fgetcsv($file, filesize('user.csv'),','))!==false){
-//                 $arr_elem[]=$arr;
-//             }
-//     }
-
-// }
+$Authoriz = new authorization();
+$Authoriz->getFile();
+$Authoriz->getData();
+$Authoriz->SetError();
