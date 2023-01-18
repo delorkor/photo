@@ -3,6 +3,7 @@ session_start();
 if (!$_SESSION['name']) {
   header('Location: index.php');
 }
+include 'phpcode/pagenation.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,62 +33,46 @@ if (!$_SESSION['name']) {
 <section class="img_sec">
 
 <?php
-// echo '<pre>';
-// echo print_r($_SESSION['name_img']);
-// echo '<pre>';
+ $Pagin = new Pagination(8);
+//  $Pagin->getNumPag();
+ $Pagin->getPag();
+// if ($_SESSION['name_img']!='') {
 
-if ($_SESSION['name_img']!='') {
+//   $p = isset($_GET["p"]) ? (int) $_GET["p"] : 1;
+//   $str_img=8;
+//   // $str_visual=4;
 
-  //////////////////////////////////////////////////////////////////////// пагенация
-  $p = isset($_GET["p"]) ? (int) $_GET["p"] : 1;
-  $str_img=8;
-  $str_visual=4;
-
-
- $arr_rev=array_merge(array_reverse($_SESSION['name_img']));
+//  $arr_rev=array_merge(array_reverse($_SESSION['name_img']));
   
-  $str_start=($p-1)*$str_img;
-$str_page=ceil(count($_SESSION['name_img'])/$str_img);
-$str_page_ostatoc= abs(ceil(count($_SESSION['name_img'])-($str_start)));
-if($str_page_ostatoc>8){$str_page_ostatoc=8;}
+//   $str_start=($p-1)*$str_img;
+// $str_page=ceil(count($_SESSION['name_img'])/$str_img);
+// $str_page_ostatoc= abs(ceil(count($_SESSION['name_img'])-($str_start)));
+// if($str_page_ostatoc>8){$str_page_ostatoc=8;}
 
-// echo '<pre>';
-// // echo print_r($_SESSION["name_img"]);
-// echo $str_page_ostatoc;
-// echo '</pre>';
-// for ($i=$str_start; $i <$str_start+$str_img; $i++) { 
-    for ($i=$str_start; $i <$str_start+$str_page_ostatoc; $i++) { 
+//     for ($i=$str_start; $i <$str_start+$str_page_ostatoc; $i++) { 
       
-      echo '<div class="box">';
-      echo '  <a href="/page_img.php/'.$arr_rev[$i] .'"><img class="img_sec_user" src="photo/'. $_SESSION['login'] . '/' .$arr_rev[$i] . '"alt=""> </a>';
-      echo '<form action="phpcode/down_f.php" method="post">';
-      echo'<input class="ninja" type="text" name="del" value ="'. $arr_rev[$i] .'" >';
-      if (isset($arr_rev[$i])) {
-        echo'<input type="submit" class="del_but" value="Удалить">';
-    }
-    echo '</form>' ;
-    echo '</div>';
-    }
+//       echo '<div class="box">';
+//       echo '  <a href="/page_img.php/'.$arr_rev[$i] .'"><img class="img_sec_user" src="photo/'. $_SESSION['login'] . '/' .$arr_rev[$i] . '"alt=""> </a>';
+//       echo '<form action="phpcode/down_f.php" method="post">';
+//       echo'<input class="ninja" type="text" name="del" value ="'. $arr_rev[$i] .'" >';
+//       if (isset($arr_rev[$i])) {
+//         echo'<input type="submit" class="del_but" value="Удалить">';
+//     }
+//     echo '</form>' ;
+//     echo '</div>';
+//     }
     
-
-// //   ////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-}
+// }
 
   ?>
 
 </section>
 <section class="pagen">
+<?$Pagin->getNumPag();?>
 
-<? for($i = 1; $i <= $str_page; $i++){ ?>
-<a href="?p=<?= $i ?>"><?= $i?></a>
-<? } ?>
+<!-- for($i = 1; $i <= $str_page; $i++){ 
+<a href="?p=< $i ?>">< $i?></a>
+} 
 
 
 
