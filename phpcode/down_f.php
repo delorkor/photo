@@ -34,14 +34,14 @@ else {
   }
 
   function DelFile(){
-    // $dir_img = opendir('../photo/'. $_SESSION['login']);
+    $dir_img = opendir('../photo/'. $_SESSION['login']);
     foreach ($_SESSION['name_img'] as $key=> $value_del) {
         if ($_POST['del']== $value_del) {
             unlink('../photo/'. $_SESSION['login'] . "/" . $value_del);
         }
     }
     header('Location: ../personal_account.php');
-    // closedir($dir_img);
+    closedir($dir_img);
   }
 
 

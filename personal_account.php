@@ -33,50 +33,9 @@ include 'phpcode/pagenation.php';
 <section class="img_sec">
 
 <?php
- $Pagin = new Pagination(8);
-//  $Pagin->getNumPag();
+ $Pagin = new Pagination(9);
  $Pagin->getPag();
-// if ($_SESSION['name_img']!='') {
-
-//   $p = isset($_GET["p"]) ? (int) $_GET["p"] : 1;
-//   $str_img=8;
-//   // $str_visual=4;
-
-//  $arr_rev=array_merge(array_reverse($_SESSION['name_img']));
-  
-//   $str_start=($p-1)*$str_img;
-// $str_page=ceil(count($_SESSION['name_img'])/$str_img);
-// $str_page_ostatoc= abs(ceil(count($_SESSION['name_img'])-($str_start)));
-// if($str_page_ostatoc>8){$str_page_ostatoc=8;}
-
-//     for ($i=$str_start; $i <$str_start+$str_page_ostatoc; $i++) { 
-      
-//       echo '<div class="box">';
-//       echo '  <a href="/page_img.php/'.$arr_rev[$i] .'"><img class="img_sec_user" src="photo/'. $_SESSION['login'] . '/' .$arr_rev[$i] . '"alt=""> </a>';
-//       echo '<form action="phpcode/down_f.php" method="post">';
-//       echo'<input class="ninja" type="text" name="del" value ="'. $arr_rev[$i] .'" >';
-//       if (isset($arr_rev[$i])) {
-//         echo'<input type="submit" class="del_but" value="Удалить">';
-//     }
-//     echo '</form>' ;
-//     echo '</div>';
-//     }
-    
-// }
-
   ?>
-
 </section>
 <section class="pagen">
 <?$Pagin->getNumPag();?>
-
-<!-- for($i = 1; $i <= $str_page; $i++){ 
-<a href="?p=< $i ?>">< $i?></a>
-} 
-
-
-
-</section>
-</body>
-
-</html>
