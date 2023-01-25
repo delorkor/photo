@@ -7,6 +7,7 @@ public $str_start;
 public $str_page;
 public $str_page_ostatoc;
 public $arr_rev;
+public $numStr=2;
 public $p;
     function __construct($str_img){
         $this->p=$this->getNum();
@@ -36,75 +37,48 @@ public $p;
          }
 
     }
-    function getNumPag(){
+  function getNumPag(){
+    if (empty($_GET["p"])) {
+       $_GET["p"]=1;
+    }
+    if($_GET["p"]>$this->numStr+1){
+      echo'<a class=" ClassSt" href="?p=1">'. 1 .'</a><span>...</span>';
+    }
 
-  for($i = 1; $i <= $this->str_page; $i++){ 
-    if($i==$_GET["p"]){
-  echo'<a class=" ClassStyle" href="?p=' . $i . '">'. $i .'</a>';
+      for($i = $this->getNumDisplayMin(); $i <= $this->getNumDisplayMax(); $i++){ 
+        if($i==$_GET["p"]){
+           echo'<a class=" ClassStyle" href="?p=' . $i . '">'. $i .'</a>';
 }
-else{
-    echo'<a class=" ClassSt" href="?p=' . $i . '">'. $i .'</a>';
+        else{
+           echo'<a class=" ClassSt" href="?p=' . $i . '">'. $i .'</a>';
 }
  } 
-
+ if($_GET["p"]<$this->str_page-$this->numStr){
+ echo'<span>...</span><a class=" ClassSt" href="?p=' . $this->str_page . '">'. $this->str_page .'</a>';
     }
+  }
     function getNum(){
         $p = isset($_GET["p"]) ? (int) $_GET["p"] : 1;
         return  $p ;
-       } 
+    } 
 
+    function getNumDisplayMin(){
+        if ($_GET["p"]>$this->numStr) {
+          return $_GET["p"]-$this->numStr;
+        }
+    }
+        
+    function getNumDisplayMax(){
+          $DisplayMax=$_GET["p"]+$this->numStr;
+        if ($DisplayMax>=$this->str_page) {
+            return $this->str_page;
+        }
+        else return $DisplayMax;
+    }
+            
 }
 
-
-
-
-
-
-
-
-// <?php
-// // echo '<pre>';
-// // echo print_r($_SESSION['name_img']);
-// // echo '<pre>';
-
-// if ($_SESSION['name_img']!='') {
-
-//   //////////////////////////////////////////////////////////////////////// пагенация
-//   $p = isset($_GET["p"]) ? (int) $_GET["p"] : 1;
-//   $str_img=8;
-//   $str_visual=4;
-
-
-//  $arr_rev=array_merge(array_reverse($_SESSION['name_img']));
-  
-//   $str_start=($p-1)*$str_img;
-// $str_page=ceil(count($_SESSION['name_img'])/$str_img);
-// $str_page_ostatoc= abs(ceil(count($_SESSION['name_img'])-($str_start)));
-// if($str_page_ostatoc>8){$str_page_ostatoc=8;}
-
-// // echo '<pre>';
-// // // echo print_r($_SESSION["name_img"]);
-// // echo $str_page_ostatoc;
-// // echo '</pre>';
-// // for ($i=$str_start; $i <$str_start+$str_img; $i++) { 
-//     for ($i=$str_start; $i <$str_start+$str_page_ostatoc; $i++) { 
-      
-//       echo '<div class="box">';
-//       echo '  <a href="/page_img.php/'.$arr_rev[$i] .'"><img class="img_sec_user" src="photo/'. $_SESSION['login'] . '/' .$arr_rev[$i] . '"alt=""> </a>';
-//       echo '<form action="phpcode/down_f.php" method="post">';
-//       echo'<input class="ninja" type="text" name="del" value ="'. $arr_rev[$i] .'" >';
-//       if (isset($arr_rev[$i])) {
-//         echo'<input type="submit" class="del_but" value="Удалить">';
-//     }
-//     echo '</form>' ;
-//     echo '</div>';
-//     }
-    
-
-// // //   ////////////////////////////////////////////////////////////////////////
-
-
-
+ 
 
 
 
