@@ -26,7 +26,8 @@ session_start();
 
         <label for="name">Имя</label>
         <input type="text" name="name">
-
+ 
+        
         <label for="fname">Фамилия</label>
         <input type="text" name="fname">
 
